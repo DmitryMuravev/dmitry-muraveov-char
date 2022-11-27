@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0.5
+      author: DMuravev
+      changes:
+        - createTable:
+            tableName: messages
+            columns:
+              - column:
+                  name: id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: varchar(63)
+                  constraints:
+                    foreignKeyName: fk_messages_user
+                    references: users(id)
+                    nullable: false
+              - column:
+                  name: content
+                  type: TEXT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP

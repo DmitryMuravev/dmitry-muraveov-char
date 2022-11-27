@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0.2
+      author: DMuravev
+      changes:
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(127)
+                  constraints:
+                    unique: true
+                    nullable: false
